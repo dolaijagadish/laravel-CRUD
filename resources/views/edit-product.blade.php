@@ -11,9 +11,10 @@
                 <div class="p-2 text-gray-900">
                     <div>
                         <a href="{{ route('home') }}" class="px-2 py-2 bg-green-500 rounded-sm">Home</a>
-                        <a href="{{ route('add-productt') }}" class="px-2 py-2 bg-green-500 rounded-sm">Add New Product</a>
+                        <a href="{{ route('add-product') }}" class="px-2 py-2 bg-green-500 rounded-sm">Add New Product</a>
                         <a href="{{ route('view-users') }}" class="px-2 py-2 bg-green-500 rounded-sm">Vew all Users/Admins</a>
-                        <a href="{{ route('products-view') }}" class="px-2 py-2 bg-green-500 rounded-sm">View Products</a>
+                        <a href="{{ route('products-view') }}" class="px-2 py-2 bg-green-500 rounded-sm">View
+                            Products</a>
                     </div>
                     <div class="max-w-7xl  text-center font-bold  p-2 text-xl text-yellow-700 ">
                         <h1 class="">Update Product Details</h1>
