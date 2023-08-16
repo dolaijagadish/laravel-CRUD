@@ -1,13 +1,13 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Admin Dashboard') }}
+            {{ __('Dashboard') }}
         </h2>
     </x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="flex justify-center items-center text-2xl font-bold py-2">Laravel CRUD Application with Roles
+            <div class="flex justify-center items-center text-3xl font-bold py-2 border border-green-700 rounded-lg">Laravel CRUD Application with Roles
             </div>
             <div class="flex gap-2 justify-center items-center mt-4">
                 <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
