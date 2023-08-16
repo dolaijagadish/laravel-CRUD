@@ -1,0 +1,54 @@
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Admin Dashboard') }}
+        </h2>
+    </x-slot>
+
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class=" overflow-hidden  ">
+                <div class="p-2 text-gray-900">
+                    <div>
+                        <a href="{{ route('home') }}" class="px-2 py-2 bg-green-500 rounded-sm">Home</a>
+                        <a href="{{ route('add-productt') }}" class="px-2 py-2 bg-green-500 rounded-sm">Add New Product</a>
+                        <a href="{{ route('view-users') }}" class="px-2 py-2 bg-green-500 rounded-sm">Vew all Users/Admins</a>
+                        <a href="{{ route('products-view') }}" class="px-2 py-2 bg-green-500 rounded-sm">View Products</a>
+                    </div>
+                    <div class="max-w-7xl  text-center font-bold  p-2 text-xl text-yellow-700 ">
+                        <h1 class="">Update Product Details</h1>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="w-full">
+            <div class="w-full flex justify-center items-center">
+                <form action="{{ route('update') }}" method="post">
+                    @csrf
+                    <input type="text" name="id" value="{{ $product->id }}" hidden>
+                    <div class="mb-4">
+                        <label class="text-lg">Product Name</label>
+                        <input class="w-[32rem] block " type="text" name="name" value="{{ $product->name }}">
+                    </div>
+                    <div class="my-4">
+                        <label class="text-lg">Price</label>
+                        <input class=" w-[32rem] block" type="number" name="price" value="{{ $product->price }}"
+                            placeholder="Price">
+                    </div>
+                    <div class="my-4">
+                        <label class="text-lg">Description</label>
+                        <input class=" w-[32rem] block" type="text" name="description"
+                            value="{{ $product->description }}" placeholder="Description ">
+                    </div>
+
+                    <div class="flex items-center justify-center">
+                        <button class="block px-1 py-2 bg-green-500">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</x-app-layout>
