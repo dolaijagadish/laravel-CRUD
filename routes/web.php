@@ -27,7 +27,6 @@ Route::get('/', function () {
 });
 
 Route::get('/home',[HomeController::class,'index'])->middleware('auth')->name('home');
-
 Route::get('/products-view',[ProductsController::class, 'show'])->middleware('auth')->name('products-view');
 Route::get('/add-product',[ProductsController::class, 'create'])->middleware('auth')->name('add-product');
 Route::post('/store',[ProductsController::class, 'store'])->middleware('auth')->name('store');
