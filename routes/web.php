@@ -27,7 +27,6 @@ Route::get('/', function () {
 });
 
 Route::get('/home',[HomeController::class,'index'])->middleware('auth')->name('home');
-
 Route::get('/products-view',[ProductsController::class, 'show'])->middleware('auth')->name('products-view');
 Route::get('/add-product',[ProductsController::class, 'create'])->middleware('auth')->name('add-product');
 Route::post('/store',[ProductsController::class, 'store'])->middleware('auth')->name('store');
@@ -36,10 +35,10 @@ Route::post('/store',[ProductsController::class, 'store'])->middleware('auth')->
 Route::get('/delete-product/{id}',[ProductsController::class, 'destroy'])->middleware(['auth','admin'])->name('delete-product');
 Route::get('/delete-user/{id}',[UserController::class, 'delete'])->middleware(['auth','admin'])->name('delete-user');
 Route::get('/view-users',[UserController::class, 'index'])->middleware(['auth','admin'])->name('view-users');
+Route::get('/edit-user/{id}',[UserController::class, 'edit'])->middleware(['auth','admin'])->name('edit-user');
+Route::post('/update-user',[UserController::class, 'update'])->middleware(['auth','admin'])->name('update-user');
 Route::get('/edit/{id}',[ProductsController::class, 'edit'])->middleware(['auth','admin'])->name('edit');
 Route::post('/update',[ProductsController::class, 'update'])->middleware(['auth','admin'])->name('update');
-
-
 //end admin
 
 

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Products;
-use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+
 
 class ProductsController extends Controller
 {
@@ -33,6 +33,7 @@ class ProductsController extends Controller
         $request->validate([
             'name' => 'required',
             'price' => 'required',
+            'description'=>'required',
         ]);
         $image = $request->file('image');
         Products::create([
@@ -52,7 +53,8 @@ class ProductsController extends Controller
     public function show()
     {
         $products = Products::all();
-        return view('products-view', ['products' => $products]);
+
+        return view('products-view', compact('products'));
     }
 
     /**

@@ -5,45 +5,72 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="flex justify-center items-center text-3xl font-bold py-2 border border-green-700 rounded-lg">Laravel CRUD Application with Roles
+    <div class="py-12 ">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 ">
+            <div class=" flex justify-center items-center text-3xl font-bold py-2 border border-green-700 rounded-lg">
+                Laravel CRUD Application with Roles
             </div>
-            <div class="flex gap-2 justify-center items-center mt-4">
-                <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Here you can create
+            <div class="grid grid-cols-3 gap-2 mt-4">
+                <div
+                    class="block max-w-sm p-6 bg-blue-400 border border-gray-200 rounded-lg shadow hover:bg-blue-600">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">Here you can create
                         new product</h5>
                     <div class="flex justify-center items-center">
-                        <a href="{{ route('add-product') }}" class="text-white bg-green-600 px-2 py-2 rounded-md">Add
+                        <a href="{{ route('add-product') }}" class="bg-gradient-to-r from-green-400 to-green-500 hover:from-pink-500 hover:to-yellow-500 px-6 py-2 rounded-lg text-white">Add
+                            Product</a>
+                    </div>
+                </div>
+                <div
+                    class="block max-w-sm p-6 bg-blue-400 border border-gray-200 rounded-lg shadow hover:bg-blue-600">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">Here you can view
+                        all product list</h5>
+                    <div class="flex justify-center items-center">
+                        <a href="{{ route('products-view') }}" class="bg-gradient-to-r from-green-400 to-green-500 hover:from-pink-500 hover:to-yellow-500 px-6 py-2 rounded-lg text-white">All
                             Product</a>
                     </div>
                 </div>
                 @if (Auth::user()->isAdmin == '1')
                     <div
-                        class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Here you can
+                        class="block max-w-sm p-6 bg-blue-400 border border-gray-200 rounded-lg shadow hover:bg-blue-600">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">Here you can
                             view all users and admin details</h5>
                         <div class="flex justify-center items-center">
                             <a href="{{ route('view-users') }}"
-                                class=" text-white bg-green-600 px-10 py-2 rounded-md">View</a>
+                                class=" bg-gradient-to-r from-green-400 to-green-500 hover:from-pink-500 hover:to-yellow-500 px-6 py-2 rounded-lg text-white">View</a>
                         </div>
                     </div>
                 @endif
                 <div
-                    class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Here you can view
-                        all product list</h5>
+                    class="block max-w-sm p-6 bg-blue-400 border border-gray-200 rounded-lg shadow hover:bg-blue-600">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">Here you can view
+                        all Roles And Permission</h5>
                     <div class="flex justify-center items-center">
-                        <a href="{{ route('products-view') }}" class=" text-white bg-green-600 px-2 py-2 rounded-md">All
-                            Product</a>
+                        <a href="{{ route('products-view') }}" class="bg-gradient-to-r from-green-400 to-green-500 hover:from-pink-500 hover:to-yellow-500 px-6 py-2 rounded-lg text-white">Click Me</a>
                     </div>
                 </div>
-
-                @if ($message = Session::get('success'))
-                <div class="alert alert-success alert-block">
-                    <button type="button" class="close" data-dismiss="alert">×</button>	
-                        <strong>{{ $message }}</strong>
+                <div
+                    class="block max-w-sm p-6 bg-blue-400 border border-gray-200 rounded-lg shadow hover:bg-blue-600">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">Here you can Edit
+                        Roles And Permission</h5>
+                    <div class="flex justify-center items-center">
+                        <a href="{{ route('products-view') }}"
+                            class="bg-gradient-to-r from-green-400 to-green-500 hover:from-pink-500 hover:to-yellow-500 px-6 py-2 rounded-lg text-white">Click Me</a>
+                    </div>
                 </div>
+                <div
+                    class="block max-w-sm p-6 bg-blue-400 border border-gray-200 rounded-lg shadow hover:bg-blue-600">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">Here you can Delete
+                        Roles And Permission</h5>
+                    <div class="flex justify-center items-center">
+                        <a href="{{ route('products-view') }}"
+                            class="bg-gradient-to-r from-green-400 to-green-500 hover:from-pink-500 hover:to-yellow-500 px-6 py-2 rounded-lg text-white">Click Me</a>
+                    </div>
+                </div>
+                @if ($message = Session::get('success'))
+                    <div class="alert alert-success alert-block">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <strong>{{ $message }}</strong>
+                    </div>
                 @endif
             </div>
         </div>

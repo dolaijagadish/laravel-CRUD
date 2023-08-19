@@ -45,6 +45,7 @@
                                     <td class="p-2">
                                         <div class="flex justify-center  ">
                                             @if ($user->isAdmin == '1')
+                                            
                                                 Admin
                                             @else
                                                 User
@@ -56,6 +57,8 @@
                                             @if ($user->id != Auth::user()->id)
                                                 <a href="{{ Route('delete-user', $user->id) }}"
                                                     class="px-2 py-2 bg-red-600 rounded-sm text-white">Delete</a>
+                                                <a href="{{ Route('edit-user', $user->id) }}"
+                                                    class="px-2 py-2 bg-blue-600 rounded-sm text-white">Edit</a>
                                             @endif
                                         </div>
                                     </td>

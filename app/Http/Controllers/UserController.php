@@ -16,8 +16,22 @@ class UserController extends Controller
     public function delete($id)
     {
         User::find($id)->delete();
-        Alert::success('','User Deleted Succesfully');
+        Alert::success('', 'User Deleted Succesfully');
         return back();
     }
-    
+
+    public function edit($id)
+    {
+        $user = User::find($id);
+        return view('edit-user', ['user' => $user]);
+
+    }
+    public function update(Request $request)
+    {
+        $user = User::find($request->id);
+        $user->update([
+           $user->isAdmin = $request->isAdmin,
+        ]);
+        return redirect(route('view-users'));
+    }
 }

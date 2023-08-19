@@ -44,7 +44,7 @@
                     </div>
 
                     <div class="flex items-center justify-center">
-                        <button class="block px-1 py-2 bg-green-500">
+                        <button class="bg-gradient-to-r from-green-400 to-green-500 hover:from-pink-500 hover:to-yellow-500 px-6 py-2 rounded-lg text-white">
                             Submit
                         </button>
                     </div>
