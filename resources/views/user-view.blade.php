@@ -1,5 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
+        @section('title', 'All User')
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             All Users
         </h2>
@@ -45,7 +46,6 @@
                                     <td class="p-2">
                                         <div class="flex justify-center  ">
                                             @if ($user->isAdmin == '1')
-                                            
                                                 Admin
                                             @else
                                                 User

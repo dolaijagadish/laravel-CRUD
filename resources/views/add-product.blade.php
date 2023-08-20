@@ -1,5 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
+        @section('title','Add Product')
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             Add New Product </h2>
     </x-slot>

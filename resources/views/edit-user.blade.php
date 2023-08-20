@@ -1,7 +1,8 @@
 <x-app-layout>
     <x-slot name="header">
+        @section('title','Edit User')
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Admin Dashboard') }}
+            Edit User
         </h2>
     </x-slot>
 

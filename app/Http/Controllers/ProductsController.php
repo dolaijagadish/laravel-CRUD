@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Products;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -33,16 +34,18 @@ class ProductsController extends Controller
         $request->validate([
             'name' => 'required',
             'price' => 'required',
-            'description'=>'required',
+            'description' => 'required',
         ]);
-        $image = $request->file('image');
+        $user = Auth::user()->name;
         Products::create([
             'name' => $request->name,
             'price' => $request->price,
             'description' => $request->description,
+            'added_by' => $user,
+
         ]);
 
-        Alert::success('','Product Saved Succesfully');
+        Alert::success('Product Saved Succesfully');
 
         return Redirect(route('products-view'));
     }
@@ -52,8 +55,8 @@ class ProductsController extends Controller
      */
     public function show()
     {
-        $products = Products::all();
 
+        $products = Products::all();
         return view('products-view', compact('products'));
     }
 
@@ -64,7 +67,7 @@ class ProductsController extends Controller
     {
         $product = Products::find($id);
         return view('edit-product', ['product' => $product]);
-        
+
 
     }
 
@@ -79,13 +82,13 @@ class ProductsController extends Controller
         ]);
 
         $product = Products::find($request->id);
-
         $product->update([
             'name' => $request->name,
             'price' => $request->price,
             'description' => $request->description,
+
         ]);
-        Alert::success('','Product Updated Succesfully');
+        Alert::success('Product Updated Succesfully');
 
         return Redirect(route('products-view'));
     }
@@ -97,7 +100,7 @@ class ProductsController extends Controller
     {
         $product = Products::find($id);
         $product->delete();
-        Alert::success('','Product Deleted Succesfully');
+        Alert::success('Product Deleted Succesfully');
         return redirect(route('products-view'));
 
     }

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer('price');
             $table->text('description');
+            $table->string('added_by');
             $table->timestamps();
         });
     }

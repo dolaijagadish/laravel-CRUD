@@ -26,22 +26,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home',[HomeController::class,'index'])->middleware('auth')->name('home');
-Route::get('/products-view',[ProductsController::class, 'show'])->middleware('auth')->name('products-view');
-Route::get('/add-product',[ProductsController::class, 'create'])->middleware('auth')->name('add-product');
-Route::post('/store',[ProductsController::class, 'store'])->middleware('auth')->name('store');
+Route::get('/home', [HomeController::class, 'index'])->middleware('auth')->name('home');
+Route::get('/products-view', [ProductsController::class, 'show'])->middleware('auth')->name('products-view');
+Route::get('/add-product', [ProductsController::class, 'create'])->middleware('auth')->name('add-product');
+Route::post('/store', [ProductsController::class, 'store'])->middleware('auth')->name('store');
 
-//Admin Area
-Route::get('/delete-product/{id}',[ProductsController::class, 'destroy'])->middleware(['auth','admin'])->name('delete-product');
-Route::get('/delete-user/{id}',[UserController::class, 'delete'])->middleware(['auth','admin'])->name('delete-user');
-Route::get('/view-users',[UserController::class, 'index'])->middleware(['auth','admin'])->name('view-users');
-Route::get('/edit-user/{id}',[UserController::class, 'edit'])->middleware(['auth','admin'])->name('edit-user');
-Route::post('/update-user',[UserController::class, 'update'])->middleware(['auth','admin'])->name('update-user');
-Route::get('/edit/{id}',[ProductsController::class, 'edit'])->middleware(['auth','admin'])->name('edit');
-Route::post('/update',[ProductsController::class, 'update'])->middleware(['auth','admin'])->name('update');
-//end admin
-
-
+Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function () {
+    Route::get('/delete-product/{id}', [ProductsController::class, 'destroy'])->name('delete-product');
+    Route::get('/delete-user/{id}', [UserController::class, 'delete'])->name('delete-user');
+    Route::get('/edit/{id}', [ProductsController::class, 'edit'])->name('edit-product');
+    Route::get('/edit-user/{id}', [UserController::class, 'edit'])->name('edit-user');
+    Route::post('/update', [ProductsController::class, 'update'])->name('update');
+    Route::post('/update-user', [UserController::class, 'update'])->name('update-user');
+    Route::get('/view-users', [UserController::class, 'index'])->name('view-users');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -49,4 +47,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

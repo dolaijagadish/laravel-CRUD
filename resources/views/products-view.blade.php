@@ -1,7 +1,8 @@
 <x-app-layout>
     <x-slot name="header">
+        @section('title', 'All Products')
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('All products') }}
+            All products
         </h2>
     </x-slot>
 
@@ -25,38 +26,45 @@
                             <th class="bg-slate-400 px-3">Name</th>
                             <th class="bg-slate-400 px-3">Price</th>
                             <th class="bg-slate-400 px-3">Description</th>
+                            <th class="bg-slate-400 px-3">Added by</th>
+
                             @if (Auth::user()->isAdmin == '1')
                                 <th class="bg-slate-400 px-3">
                                     Action
                                 </th>
                             @endif
                             @foreach ($products as $products)
-                                <tr class=" w-[60px] text-blue-600	bg-slate-200">
+                                <tr class="w-[60px] text-blue-600	bg-slate-200">
                                     <td>
-                                        <div class="flex justify-center">
+                                        <div class="flex justify-center text-black">
                                             {{ $products->id }}
                                         </div>
                                     </td>
 
                                     <td class="p-2">
-                                        <div class="flex justify-center">
+                                        <div class="flex justify-center text-purple-600">
                                             {{ $products->name }}
                                         </div>
                                     </td>
                                     <td class="p-2">
-                                        <div class="flex justify-center text-violet-900">
+                                        <div class="flex justify-center text-red-600">
                                             <span class="mr-1">&#8377;</span> {{ $products->price }}
                                         </div>
                                     </td>
                                     <td class="p-2">
-                                        <div class="flex justify-center  ">
+                                        <div class="flex justify-center items-center ">
                                             {{ $products->description }}
+                                        </div>
+                                    </td>
+                                    <td class="p-2">
+                                        <div class="flex justify-center text-red-400 ">
+                                            {{ $products->added_by }}
                                         </div>
                                     </td>
                                     @if (Auth::user()->isAdmin == '1')
                                         <td>
                                             <div class="flex py-1 justify-center gap-2">
-                                                <a href="{{ Route('edit', $products->id) }}"
+                                                <a href="{{ Route('edit-product', $products->id) }}"
                                                     class="px-2 py-2 bg-yellow-400 rounded-sm text-blue-900">Edit</a>
                                                 <a href="{{ Route('delete-product', $products->id) }}"
                                                     class="px-2 py-2 bg-red-600 rounded-sm text-white">Delete</a>

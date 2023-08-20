@@ -16,7 +16,7 @@ class UserController extends Controller
     public function delete($id)
     {
         User::find($id)->delete();
-        Alert::success('', 'User Deleted Succesfully');
+        Alert::success('User Deleted Succesfully');
         return back();
     }
 

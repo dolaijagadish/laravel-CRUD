@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Laravel</title>
+@livewireStyles
+    <title>Welcome</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -836,8 +836,10 @@
         class="relative sm:flex sm:justify-center sm:items-center min-h-screen  selection:bg-red-500 selection:text-white">
         <div class="block text-white text-center py-4">
             <h1 class="text-4xl font-bold">Welcome to CRUD App</h1>
-            <p class="mt-2">A simple CRUD application built with Laravel</p>
-
+            <p class="mt-2">A Roles based CRUD application built with Laravel </p>
+            <div>
+                {{-- @livewire('view-user') --}}
+            </div>
             @if (Route::has('login'))
                 <div class="flex gap-2 justify-center items-center mt-10">
                     @auth
@@ -856,6 +858,8 @@
             @endif
         </div>
     </div>
+    @livewireScripts
+
 </body>
 
 </html>

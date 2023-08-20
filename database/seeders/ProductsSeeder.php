@@ -13,11 +13,12 @@ class ProductsSeeder extends Seeder
      */
     public function run(): void
     {
-        for($i=1; $i<=10; $i++){
+        for($i=1; $i<=5; $i++){
         Products::create([
             'name' => 'Product'.$i,
             'price' => 34,
             'description' => 'This is product description',
+            'added_by'=>'Admin',
         ]);
     }
     }
