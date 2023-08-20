@@ -58,7 +58,7 @@
                                             <div class="flex py-1 justify-center gap-2">
                                                 <a href="{{ Route('edit', $products->id) }}"
                                                     class="px-2 py-2 bg-yellow-400 rounded-sm text-blue-900">Edit</a>
-                                                <a href="{{ Route('delete-user', $products->id) }}"
+                                                <a href="{{ Route('delete-product', $products->id) }}"
                                                     class="px-2 py-2 bg-red-600 rounded-sm text-white">Delete</a>
                                             </div>
                                         </td>
